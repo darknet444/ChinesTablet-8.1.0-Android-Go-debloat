@@ -56,7 +56,6 @@ adb shell pm uninstall --user 0 com.android.keychain
 adb shell pm uninstall --user 0 com.android.htmlviewer
 adb shell pm uninstall --user 0 com.android.systemui.theme.dark
 adb shell pm uninstall --user 0 com.android.providers.calendar
-adb shell pm uninstall --user 0 com.android.providers.media
 adb shell pm uninstall --user 0 com.android.externalstorage
 
 echo " Removing Google Apps "
