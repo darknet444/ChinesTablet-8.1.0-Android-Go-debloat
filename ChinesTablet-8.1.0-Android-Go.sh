@@ -31,8 +31,8 @@ adb shell pm uninstall --user 0 com.android.bips
 adb shell pm uninstall --user 0 com.android.nfc
 adb shell pm uninstall --user 0 com.android.music
 adb shell pm uninstall --user 0 com.android.providers.partnerbookmarks
-#adb shell pm uninstall --user 0 com.android.cts.ctsshim
-#adb shell pm uninstall --user 0 com.android.cts.priv.ctsshim
+adb shell pm uninstall --user 0 com.android.cts.ctsshim
+adb shell pm uninstall --user 0 com.android.cts.priv.ctsshim
 adb shell pm uninstall --user 0 com.android.bookmarkprovider
 adb shell pm uninstall --user 0 com.android.smspush
 adb shell pm uninstall --user 0 com.android.wallpapercropper
