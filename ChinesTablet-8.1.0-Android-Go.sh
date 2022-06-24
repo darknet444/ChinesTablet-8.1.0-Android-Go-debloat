@@ -53,7 +53,7 @@ adb shell pm uninstall --user 0 com.android.providers.telephony
 adb shell pm uninstall --user 0 com.android.server.telecom
 adb shell pm uninstall --user 0 com.android.phone
 adb shell pm uninstall --user 0 com.android.keychain
-#adb shell pm uninstall --user 0 com.android.htmlviewer
+adb shell pm uninstall --user 0 com.android.htmlviewer
 adb shell pm uninstall --user 0 com.android.systemui.theme.dark
 adb shell pm uninstall --user 0 com.android.providers.calendar
 #adb shell pm uninstall --user 0 com.android.externalstorage
