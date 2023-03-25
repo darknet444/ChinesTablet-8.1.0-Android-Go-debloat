@@ -1,7 +1,18 @@
 #!/bin/bash
 
+echo " Checking if there is android smartphone "
+adb devices | grep -w device > /dev/null
+
+if [ $? -ne 0 ]
+then
+    echo "Error: No Android device detected. Please connect your device and try again."
+    exit 1
+fi
+
 echo " Disable animations "
-adb shell settings put global window_animation_scale 0.0 && adb shell settings put global transition_animation_scale 0.0 && adb shell settings put global animator_duration_scale 0.0
+adb shell settings put global window_animation_scale 0.0 
+adb shell settings put global transition_animation_scale 0.0 
+adb shell settings put global animator_duration_scale 0.0
 
 echo " Clearing cache and data "
 for package in $(adb shell pm list packages -f | sed -e "s/.*=//" -e "s/\r//"); do
