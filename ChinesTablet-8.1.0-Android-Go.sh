@@ -1,14 +1,13 @@
 #!/bin/bash
 
-#########################################################
-#		CHECK DEVICE CONNECT			#
-#########################################################
+echo " Disable animations "
+adb shell settings put global window_animation_scale 0.0 && adb shell settings put global transition_animation_scale 0.0 && adb shell settings put global animator_duration_scale 0.0
 
-adb devices 
-
-########################################################
-#                  UNINSTALL APPS		       #
-########################################################
+echo " Clearing cache and data "
+for package in $(adb shell pm list packages -f | sed -e "s/.*=//" -e "s/\r//"); do
+    echo "Clearing cache for $package ..."
+    adb shell pm clear "${package}"
+done 
 
 echo " Removing Android Apps "
 adb shell pm uninstall --user 0 com.android.printspooler
@@ -59,7 +58,6 @@ adb shell pm uninstall --user 0 com.android.providers.calendar
 #adb shell pm uninstall --user 0 com.android.externalstorage
 
 echo " Removing Google Apps "
-
 adb shell pm uninstall --user 0 com.google.android.calendar
 adb shell pm uninstall --user 0 com.google.android.marvin.talkback
 adb shell pm uninstall --user 0 com.google.android.apps.photos
@@ -86,18 +84,15 @@ adb shell pm uninstall --user 0 com.google.android.gsf
 adb shell pm uninstall --user 0 com.google.android.webview
 
 echo " Removing Other Apps "
-
 adb shell pm uninstall --user 0 android.auto_generated_rro__
 adb shell pm uninstall --user 0 com.csdroid.pkg
 adb shell pm uninstall --user 0 com.lxj.multimediacopy
 adb shell pm uninstall --user 0 com.adups.fota
 adb shell pm uninstall --user 0 com.adups.fota.sysoper
-
 # adb shell pm uninstall --user 0 com.google.android.inputmethod.latin
 # adb shell pm uninstall --user 0 com.android.launcher3
 
 echo " Downloading fdroid "
-
 wget https://f-droid.org/F-Droid.apk
 
 echo " Install fdroid "
@@ -105,16 +100,16 @@ echo " Install fdroid "
 adb install F-Droid.apk 
 
 echo "waiting whene apps are Installed and Uninstalled"
-
-# Waiting whene apps are uninstalled
 sleep 60;
 
+echo " Clearing cache and data "
+for package in $(adb shell pm list packages -f | sed -e "s/.*=//" -e "s/\r//"); do
+    echo "Clearing cache for $package ..."
+    adb shell pm clear "${package}"
+done 
+
 echo "rebooting device"
-
-# Reboot device 
-
 adb reboot 
 
 # End of Script 
-
 echo done 
