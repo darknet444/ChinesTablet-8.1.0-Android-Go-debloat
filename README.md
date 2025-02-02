@@ -39,3 +39,10 @@ chmod +x ChinesTablet-8.1.0-Android-Go-debloat/Debloat.sh
 ```sh
 ./ChinesTablet-8.1.0-Android-Go-debloat/Debloat.sh
 ```
+
+## Opmerkingen
+Dit script is gratis te gebruiken en bedoeld om te helpen bij het beheren van je apparaat. Gebruik het op eigen risico.
+
+## Licentie
+Dit project is gelicentieerd onder de MIT-licentie - zie het LICENSE-bestand voor details.
+
